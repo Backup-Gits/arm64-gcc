@@ -1427,6 +1427,9 @@ class auto_suppress_location_wrappers
 #define OMP_SINGLE_BODY(NODE)	   TREE_OPERAND (OMP_SINGLE_CHECK (NODE), 0)
 #define OMP_SINGLE_CLAUSES(NODE)   TREE_OPERAND (OMP_SINGLE_CHECK (NODE), 1)
 
+#define OMP_SCOPE_BODY(NODE)	   TREE_OPERAND (OMP_SCOPE_CHECK (NODE), 0)
+#define OMP_SCOPE_CLAUSES(NODE)	   TREE_OPERAND (OMP_SCOPE_CHECK (NODE), 1)
+
 #define OMP_MASTER_BODY(NODE)	   TREE_OPERAND (OMP_MASTER_CHECK (NODE), 0)
 
 #define OMP_MASKED_BODY(NODE)	   TREE_OPERAND (OMP_MASKED_CHECK (NODE), 0)
@@ -5406,7 +5409,9 @@ extern bool gimple_canonical_types_compatible_p (const_tree, const_tree,
 extern bool type_with_interoperable_signedness (const_tree);
 extern bitmap get_nonnull_args (const_tree);
 extern int get_range_pos_neg (tree);
-extern bool valid_new_delete_pair_p (tree, tree);
+
+/* Return true for a valid pair of new and delete operators.  */
+extern bool valid_new_delete_pair_p (tree, tree, bool * = NULL);
 
 /* Return simplified tree code of type that is used for canonical type
    merging.  */

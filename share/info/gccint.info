@@ -43956,6 +43956,17 @@ Here are several miscellaneous parameters.
      Store the result in TARGET if convenient.  The default clears the
      top byte of the original pointer.
 
+ -- Target Hook: HOST_WIDE_INT TARGET_GCOV_TYPE_SIZE (void)
+     Returns the gcov type size in bits.  This type is used for example
+     for counters incremented by profiling and code-coverage events.
+     The default value is 64, if the type size of long long is greater
+     than 32, otherwise the default value is 32.  A 64-bit type is
+     recommended to avoid overflows of the counters.  If the
+     '-fprofile-update=atomic' is used, then the counters are
+     incremented using atomic operations.  Targets not supporting 64-bit
+     atomic operations may override the default value and request a
+     32-bit type.
+
 
 File: gccint.info,  Node: Host Config,  Next: Fragments,  Prev: Target Macros,  Up: Top
 
@@ -57051,6 +57062,7 @@ Concept Index
 * TARGET_FUNCTION_OK_FOR_SIBCALL:        Tail Calls.         (line    6)
 * TARGET_FUNCTION_VALUE:                 Scalar Return.      (line    9)
 * TARGET_FUNCTION_VALUE_REGNO_P:         Scalar Return.      (line   96)
+* TARGET_GCOV_TYPE_SIZE:                 Misc.               (line 1325)
 * TARGET_GENERATE_VERSION_DISPATCHER_BODY: Misc.             (line  722)
 * TARGET_GEN_CCMP_FIRST:                 Misc.               (line  905)
 * TARGET_GEN_CCMP_NEXT:                  Misc.               (line  916)
@@ -58341,58 +58353,58 @@ Node: D Language and ABI1840485
 Node: Named Address Spaces1843428
 Node: Misc1849355
 Ref: TARGET_SHIFT_TRUNCATION_MASK1857226
-Node: Host Config1917140
-Node: Host Common1918209
-Node: Filesystem1920583
-Node: Host Misc1924698
-Node: Fragments1927147
-Node: Target Fragment1928342
-Node: Host Fragment1939154
-Node: Collect21939394
-Node: Header Dirs1942030
-Node: Type Information1943453
-Node: GTY Options1946729
-Node: Inheritance and GTY1957988
-Ref: Inheritance and GTY-Footnote-11959553
-Node: User GC1959823
-Node: GGC Roots1963562
-Node: Files1964275
-Node: Invoking the garbage collector1966903
-Node: Troubleshooting1968408
-Node: Plugins1969483
-Node: Plugins loading1970612
-Node: Plugin API1971711
-Node: Plugins pass1979578
-Node: Plugins GC1981549
-Node: Plugins description1983266
-Node: Plugins attr1983802
-Node: Plugins recording1986082
-Node: Plugins gate1986932
-Node: Plugins tracking1987523
-Node: Plugins building1988111
-Node: LTO1991612
-Node: LTO Overview1992484
-Node: LTO object file layout1998236
-Node: IPA2002866
-Node: WHOPR2011916
-Node: Internal flags2016476
-Node: Match and Simplify2017887
-Node: GIMPLE API2018849
-Node: The Language2021644
-Node: Static Analyzer2034143
-Node: Analyzer Internals2034408
-Node: Debugging the Analyzer2050295
-Node: User Experience Guidelines2053215
-Node: Guidelines for Diagnostics2054151
-Ref: input_location_example2062326
-Node: Guidelines for Options2072011
-Node: Funding2072188
-Node: GNU Project2074695
-Node: Copying2075344
-Node: GNU Free Documentation License2112855
-Node: Contributors2137976
-Node: Option Index2178952
-Node: Concept Index2179829
+Node: Host Config1917762
+Node: Host Common1918831
+Node: Filesystem1921205
+Node: Host Misc1925320
+Node: Fragments1927769
+Node: Target Fragment1928964
+Node: Host Fragment1939776
+Node: Collect21940016
+Node: Header Dirs1942652
+Node: Type Information1944075
+Node: GTY Options1947351
+Node: Inheritance and GTY1958610
+Ref: Inheritance and GTY-Footnote-11960175
+Node: User GC1960445
+Node: GGC Roots1964184
+Node: Files1964897
+Node: Invoking the garbage collector1967525
+Node: Troubleshooting1969030
+Node: Plugins1970105
+Node: Plugins loading1971234
+Node: Plugin API1972333
+Node: Plugins pass1980200
+Node: Plugins GC1982171
+Node: Plugins description1983888
+Node: Plugins attr1984424
+Node: Plugins recording1986704
+Node: Plugins gate1987554
+Node: Plugins tracking1988145
+Node: Plugins building1988733
+Node: LTO1992234
+Node: LTO Overview1993106
+Node: LTO object file layout1998858
+Node: IPA2003488
+Node: WHOPR2012538
+Node: Internal flags2017098
+Node: Match and Simplify2018509
+Node: GIMPLE API2019471
+Node: The Language2022266
+Node: Static Analyzer2034765
+Node: Analyzer Internals2035030
+Node: Debugging the Analyzer2050917
+Node: User Experience Guidelines2053837
+Node: Guidelines for Diagnostics2054773
+Ref: input_location_example2062948
+Node: Guidelines for Options2072633
+Node: Funding2072810
+Node: GNU Project2075317
+Node: Copying2075966
+Node: GNU Free Documentation License2113477
+Node: Contributors2138598
+Node: Option Index2179574
+Node: Concept Index2180451
 
 End Tag Table
 
